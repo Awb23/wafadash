@@ -194,3 +194,15 @@ CSRF_TRUSTED_ORIGINS = [
     "https://glorious-space-parakeet-g4jwp56g5jgc9v6j-5173.app.github.dev"
 ]
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+import os
+
+# ... (keep all your existing settings like SECRET_KEY, DATABASES, etc.)
+
+# Add these lines at the bottom of the file
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'front/dist/assets'), # Tells Django where to find CSS, JS, etc.
+]
+
+TEMPLATES[0]['DIRS'].append(os.path.join(BASE_DIR, 'front/dist')) # Tells Django where to find index.html
