@@ -176,8 +176,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ALLOWED_HOSTS = [
     'wafadash-production.up.railway.app',
-    'localhost',
-    '127.0.0.1',
+    
 ]
 
 # This line tells Django to trust POST requests from your live site
@@ -188,5 +187,5 @@ CSRF_TRUSTED_ORIGINS = [
 # This tells Django to allow API access from your live site
 CORS_ALLOWED_ORIGINS = [
     "https://wafadash-production.up.railway.app",
-    "http://localhost:5173", # For local development
+    # For local development
 ]
