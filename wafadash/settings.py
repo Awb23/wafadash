@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-0a*vm1x8dcuhrk6=hd7xj@4+*w-2jx45n+r8v*%!^mu+axbe_1
 DEBUG = True
 
 # SECURITY WARNING: Don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
+ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
 
 # Application definition
@@ -180,5 +180,14 @@ STATICFILES_DIRS = [
     os.path.join(FRONTEND_DIR, 'assets'),  # JS, CSS, images
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+TEMPLATES[0]['DIRS'] = [FRONTEND_DIR]  # Django غادي يلقى index.html
+import os
+
+FRONTEND_DIR = os.path.join(BASE_DIR, 'front', 'dist')  # build ديال React
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'assets')]  # JS, CSS, images
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # collectstatic
 
 TEMPLATES[0]['DIRS'] = [FRONTEND_DIR]  # Django غادي يلقى index.html
