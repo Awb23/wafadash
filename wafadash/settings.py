@@ -142,3 +142,29 @@ TEMPLATES = [
         },
     },
 ]
+# wafadash/settings.py
+
+# ... other settings ...
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    # ✅ WhiteNoise MUST be right after SecurityMiddleware
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+# ... other settings like TEMPLATES, DATABASES etc. ...
+
+# --- STATIC FILES (Final Correct Configuration) ---
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'front/dist'),
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
