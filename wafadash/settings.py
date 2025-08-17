@@ -172,27 +172,7 @@ CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_SECURE = False
 
-import os
-
-# Path ديال React build
-FRONTEND_DIR = os.path.join(BASE_DIR, 'front', 'dist')
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(FRONTEND_DIR, 'assets'),  # JS, CSS, images
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-TEMPLATES[0]['DIRS'] = [FRONTEND_DIR]  # Django غادي يلقى index.html
-import os
-
-FRONTEND_DIR = os.path.join(BASE_DIR, 'front', 'dist')  # build ديال React
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'assets')]  # JS, CSS, images
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # collectstatic
-
-TEMPLATES[0]['DIRS'] = [FRONTEND_DIR]  # Django غادي يلقى index.html
+ # Django غادي يلقى index.html
 
 
 
