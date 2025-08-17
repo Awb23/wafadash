@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-0a*vm1x8dcuhrk6=hd7xj@4+*w-2jx45n+r8v*%!^mu+axbe_1
 DEBUG = True
 
 # SECURITY WARNING: Don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-DEBUG = False
+
 ALLOWED_HOSTS = ['wafadash.up.railway.app']
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
