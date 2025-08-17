@@ -180,18 +180,17 @@ CSRF_COOKIE_SECURE = False
 
 
 
-ALLOWED_HOSTS = [
-    "wafadash-production.up.railway.app",
-    "127.0.0.1",
-    "localhost"
-]
 
 ALLOWED_HOSTS = [
     "wafadash-production.up.railway.app",
     "127.0.0.1",
     "localhost",
+    "http://localhost:5173"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://wafadash-production.up.railway.app",
+    "http://localhost:5173",
+    "https://glorious-space-parakeet-g4jwp56g5jgc9v6j-5173.app.github.dev"
 ]
+CORS_ALLOW_ALL_ORIGINS = True

@@ -6,6 +6,7 @@ from .views import *
 urlpatterns = [
     # Auth & Basic Operations
     path('apilogin/', api_login, name='api_login'),
+    
     # For admins to add users
 path('dashboard/interventions/monthly/', monthly_interventions),
     path('dashboard/factures/monthly/', monthly_factures),

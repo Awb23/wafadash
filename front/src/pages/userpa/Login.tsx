@@ -5,6 +5,9 @@ import { FiUser, FiLock, FiAlertCircle } from 'react-icons/fi';
 import './Login.css';
 import logo from './assets/logo.png';
 
+// ✅ This is the line to change. It now uses the smart environment variable.
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -16,20 +19,18 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/apilogin/', {
+      // Use the API_BASE_URL variable for the request
+      const response = await axios.post(`${API_BASE_URL}/api/apilogin/`, {
         username,
         password,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
       });
 
-      const { access, is_admin } = response.data;
+      const { access, is_admin, username: loggedInUsername } = response.data; // Also get username
 
+      // Save user info to localStorage
       localStorage.setItem('token', access);
-      localStorage.setItem('is_admin', is_admin ? 'true' : 'false');
-      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('isAdmin', is_admin ? 'true' : 'false');
+      localStorage.setItem('username', loggedInUsername); // Save the username
 
       if (is_admin) {
         navigate('/admin');
@@ -38,9 +39,9 @@ export default function LoginPage() {
       }
     } catch (err: any) {
       if (axios.isAxiosError(err) && err.response) {
-        setError(err.response.data?.error || 'Login failed');
+        setError(err.response.data?.error || 'Échec de la connexion. Vérifiez vos identifiants.');
       } else {
-        setError('Login failed due to network or server error');
+        setError('Échec de la connexion en raison d\'une erreur de réseau ou de serveur.');
       }
     }
   };
@@ -54,7 +55,7 @@ export default function LoginPage() {
         <h2 className="form-title">Bienvenue</h2>
 
         {error && (
-          <div className="error-message" role="alert" aria-live="assertive">
+          <div className="error-message" role="alert">
             <FiAlertCircle aria-hidden="true" />
             <span>{error}</span>
           </div>
@@ -91,12 +92,6 @@ export default function LoginPage() {
         <button type="submit" className="login-btn">
           Se connecter
         </button>
-
-        <div className="additional-links">
-          <p className="link-text">
-            Mot de passe oublié ? <a href="#" className="link">Réinitialiser</a>
-          </p>
-        </div>
       </form>
     </div>
   );
