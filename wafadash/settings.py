@@ -193,3 +193,16 @@ STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'assets')]  # JS, CSS, images
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # collectstatic
 
 TEMPLATES[0]['DIRS'] = [FRONTEND_DIR]  # Django غادي يلقى index.html
+
+
+
+
+
+
+
+ALLOWED_HOSTS = [
+    "wafadash-production.up.railway.app",
+    "127.0.0.1",
+    "localhost"
+]
+
