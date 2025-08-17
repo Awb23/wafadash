@@ -186,3 +186,12 @@ ALLOWED_HOSTS = [
     "localhost"
 ]
 
+ALLOWED_HOSTS = [
+    "wafadash-production.up.railway.app",
+    "127.0.0.1",
+    "localhost",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://wafadash-production.up.railway.app",
+]
