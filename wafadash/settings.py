@@ -214,11 +214,6 @@ import os
 # ... (keep your existing settings)
 
 # In your MIDDLEWARE list, add WhiteNoise RIGHT AFTER the SecurityMiddleware
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # ✅ ADD THIS LINE
-    # ... other middleware
-]
 
 # --- TEMPLATES AND STATIC FILES (Replace your old settings with this) ---
 
