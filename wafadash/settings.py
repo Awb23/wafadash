@@ -29,7 +29,7 @@ DEBUG = True
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['wafadash.up.railway.app']
+ALLOWED_HOSTS = ['https://wafadash-production.up.railway.app/']
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
 
