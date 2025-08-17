@@ -28,7 +28,9 @@ DEBUG = True
 # SECURITY WARNING: Don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+ALLOWED_HOSTS = ['wafadash.up.railway.app']
+
 CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
 
 # Application definition
