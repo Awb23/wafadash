@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 # DEBUG is False by default on Railway unless you set it to 'True'
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-
+SECRET_KEY = 'django-insecure-0a*vm1x8dcuhrk6=hd7xj@4+*w-2jx45n+r8v*%!^mu+axbe_1'
 # --- NETWORKING SETTINGS ---
 ALLOWED_HOSTS = [
     'wafadash-production.up.railway.app', # Your Railway domain
@@ -83,9 +83,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'wafadash.wsgi.application'
 
 # --- DATABASE (Configured for Railway) ---
+import dj_database_url  # غادي نحتاجو باش نفكو connection string
+
 DATABASES = {
-    # This will use the DATABASE_URL from Railway's environment variables
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    'default': dj_database_url.parse(
+        "postgresql://postgres:tNvjmBUZiXyykyrSDoeXuyviYZLVnnSU@turntable.proxy.rlwy.net:19200/railway"
+    )
 }
 
 # --- AUTHENTICATION ---
@@ -117,3 +120,25 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # --- Default primary key field type ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+# wafadash/settings.py
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'front/dist')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                # ✅ THIS LINE IS NOW CORRECT
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
