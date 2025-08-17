@@ -196,54 +196,9 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = True
 
 
-import os
-
-# ... (keep all your existing settings like SECRET_KEY, DATABASES, etc.)
-
-# Add these lines at the bottom of the file
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'front/dist/assets'), # Tells Django where to find CSS, JS, etc.
-]
-
-TEMPLATES[0]['DIRS'].append(os.path.join(BASE_DIR, 'front/dist')) # Tells Django where to find index.html
+TEMPLATES[0]['DIRS'].append(os.path.join(BASE_DIR, 'front/dist'))
 
 
-# wafadash/settings.py
-import os
-
-# ... (keep your existing settings)
-
-# In your MIDDLEWARE list, add WhiteNoise RIGHT AFTER the SecurityMiddleware
-
-# --- TEMPLATES AND STATIC FILES (Replace your old settings with this) ---
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # ✅ This tells Django to look for index.html in your React build folder
-        'DIRS': [os.path.join(BASE_DIR, 'front/dist')], 
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-# The URL to access static files
-STATIC_URL = '/static/'
-
-# ✅ This tells Django where to find your React's built JS and CSS files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'front/dist/assets'),
 ]
-
-# ✅ This is where Django will collect ALL static files for production
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# ✅ This tells WhiteNoise to serve compressed static files for better performance
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

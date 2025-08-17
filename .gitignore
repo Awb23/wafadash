@@ -10,8 +10,8 @@ db.sqlite3
 
 # ---- Node / React ----
 node_modules/
-dist/
-build/
+# dist/  <- CRITICAL: This line is commented out so we can deploy the React app.
+# build/ <- Also commented out for safety.
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
