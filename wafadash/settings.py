@@ -159,11 +159,19 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
 ]
+# wafadash/settings.py
+
+# This tells Django that POST requests are safe if they come from your app's domain.
+
+
+# This is also required for the browser to send cookies correctly.
 
 CSRF_TRUSTED_ORIGINS = [
     f"https://{os.environ.get('RAILWAY_STATIC_URL', '*')}",
+     'https://wafadash-production.up.railway.app', 
 ]
 
+CORS_ALLOW_CREDENTIALS = True
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
