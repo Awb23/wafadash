@@ -142,3 +142,5 @@ CSRF_TRUSTED_ORIGINS = [
     'https://web-production-4b91f.up.railway.app',
 ]
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True

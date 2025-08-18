@@ -6,7 +6,7 @@ import './Login.css';
 import logo from './assets/logo.png';
 
 // The API URL is now hardcoded for localhost
-const API_BASE_URL ='https://wafadash-production.up.railway.app/api/apilogin/';
+const API_BASE_URL ='https://wafadash-production.up.railway.app';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
