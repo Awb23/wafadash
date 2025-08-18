@@ -104,11 +104,11 @@ WSGI_APPLICATION = "wafadash.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("PGDATABASE", "railway"),
-        "USER": os.environ.get("PGUSER", "postgres"),
-        "PASSWORD": os.environ.get("PGPASSWORD", "password"),
-        "HOST": os.environ.get("PGHOST", "localhost"),
-        "PORT": os.environ.get("PGPORT", "5432"),
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD": "tNvjmBUZiXyykyrSDoeXuyviYZLVnnSU",
+        "HOST": "turntable.proxy.rlwy.net",
+        "PORT": "19200",
     }
 }
 
