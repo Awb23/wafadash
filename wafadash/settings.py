@@ -63,19 +63,25 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wafadash.urls'
 
-TEMPLATES = [{
-    'BACKEND': 'django.template.backends.django.DjangoTemplates',
-    'DIRS': [], # Backend is an API, no extra template dirs needed
-    'APP_DIRS': True,
-    'OPTIONS': {
-        'context_processors': [
-            'django.template.context_processors.debug',
-            'django.template.context_processors.request',
-            'django.contrib.auth.context_processors.auth',
-            'django.contrib.messages.context_processors.messages',
-        ],
+# in wafadash/settings.py
+import os # Make sure 'os' is imported at the top of the file
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # ✅ THIS LINE TELLS DJANGO WHERE TO FIND YOUR REACT APP'S INDEX.HTML
+        'DIRS': [os.path.join(BASE_DIR, 'front/dist')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
     },
-}]
+]
 
 WSGI_APPLICATION = 'wafadash.wsgi.application'
 
