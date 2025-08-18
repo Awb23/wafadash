@@ -141,7 +141,7 @@ USE_TZ = True
 # --- NETWORKING SETTINGS ---
 # This list is now clean and uses the correct syntax.
 
-]
+
 # Add the auto-generated Railway URL if it exists
 RAILWAY_STATIC_URL = os.environ.get('RAILWAY_STATIC_URL')
 if RAILWAY_STATIC_URL:
@@ -151,12 +151,12 @@ CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
     'https://frontend-production-a459.up.railway.app',
     'https://web-production-4c372.up.railway.app',
-    'https://wafadash-production-a087.up.railway.app/',
+    'https://wafadash-production-a087.up.railway.app',
 ]
 CORS_ALLOWED_ORIGINS = [
     'https://frontend-production-a459.up.railway.app',
     'https://web-production-4c372.up.railway.app',
-    'https://wafadash-production-a087.up.railway.app/',
+    'https://wafadash-production-a087.up.railway.app',
     'http://localhost:5173',
 ]
 CORS_ALLOW_CREDENTIALS = True
