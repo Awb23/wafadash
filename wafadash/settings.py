@@ -210,3 +210,16 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # --- Default primary key field type ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# in wafadash/settings.py
+
+ALLOWED_HOSTS = [
+    'wafadash-production.up.railway.app', # Your main domain from Railway
+    '127.0.0.1',
+    'localhost',
+]
+
+# This is also needed for your live site to work
+RAILWAY_HOSTNAME = os.environ.get('RAILWAY_HOSTNAME')
+if RAILWAY_HOSTNAME:
+    ALLOWED_HOSTS.append(f'.{RAILWAY_HOSTNAME}')
