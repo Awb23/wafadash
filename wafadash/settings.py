@@ -84,7 +84,7 @@ ROOT_URLCONF = "wafadash.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-         "DIRS": [BASE_DIR / "front" / "dist" / "assets"],  # index.html est ici
+         "DIRS": [BASE_DIR / "front" / "dist"],  
 
         "APP_DIRS": True,
         "OPTIONS": {
