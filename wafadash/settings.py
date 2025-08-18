@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # --- SECURITY (Hardcoded - NOT RECOMMENDED) ---
 # WARNING: This is insecure. Do not use this key in a real production app.
 SECRET_KEY = 'django-insecure-0a*vm1x8dcuhrk6=hd7xj@4+*w-2jx45n+r8v*%!^mu+axbe_1'
-DEBUG = False # Should always be False in production
+DEBUG = True # Should always be False in production
 
 # --- NETWORKING ---
 # Replace with your REAL frontend URL from Railway
@@ -20,15 +20,18 @@ ALLOWED_HOSTS = [
     FRONTEND_URL.split('//')[1],      # Your frontend domain
     '127.0.0.1',
     'localhost',
+    'https://wafadash-production-facb.up.railway.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     f"https://{FRONTEND_URL.split('//')[1]}",
     "https://wafadash-production.up.railway.app",
+    "https://wafadash-production-facb.up.railway.app"
 ]
 CORS_ALLOWED_ORIGINS = [
     FRONTEND_URL,
     "http://localhost:5173",
+    "https://wafadash-production-facb.up.railway.app"
 ]
 CORS_ALLOW_CREDENTIALS = True
 
