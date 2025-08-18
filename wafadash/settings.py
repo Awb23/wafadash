@@ -20,7 +20,9 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "web-production-2122.up.railway.app",  # ✅ زيد هاد الدومين
+    "web-production-2122.up.railway.app",
+    "https://wafadash-production-a087.up.railway.app/"
+        # ✅ زيد هاد الدومين
 ]
 
 # Add Railway hostname automatically if available
