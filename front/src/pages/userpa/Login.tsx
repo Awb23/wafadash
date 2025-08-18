@@ -1,16 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import axios from 'axios'; // <-- DELETE or comment out this line
-
-// <-- Correct version without '.js'
-import apiClient from '../../api'; // <-- Correct version without '.js'
-// <-- Correct version without '.js'
+import apiClient from '../../api'; // Using the configured apiClient is important
 import { FiUser, FiLock, FiAlertCircle } from 'react-icons/fi';
-//... the rest of your imports and code
 import './Login.css';
 import logo from './assets/logo.png';
-
-// ✅ REMOVED: The API_BASE_URL is now managed inside api.js
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -23,7 +16,6 @@ export default function LoginPage() {
     setError('');
 
     try {
-      // ✅ CHANGED: Use apiClient for the request
       const response = await apiClient.post('/api/apilogin/', {
         username,
         password,
@@ -35,16 +27,14 @@ export default function LoginPage() {
       localStorage.setItem('isAdmin', is_admin ? 'true' : 'false');
       localStorage.setItem('username', loggedInUsername);
 
-      if (is_admin) {
-        navigate('/admin');
+      // All users are now sent to '/home'
+      navigate('/home');
+
+    } catch (err: any) { // ✅ FIXED: The try/catch block is now correct
+      if (err.response && err.response.data) {
+        setError(err.response.data.error || 'Login failed. Check credentials.');
       } else {
-        navigate('/home');
-      }
-    } catch (err: any) {
-      if (axios.isAxiosError(err) && err.response) {
-        setError(err.response.data?.error || 'Échec de la connexion. Vérifiez vos identifiants.');
-      } else {
-        setError('Échec de la connexion en raison d\'une erreur de réseau ou de serveur.');
+        setError('Login failed due to a network or server error.');
       }
     }
   };

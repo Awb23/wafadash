@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/userpa/Login';
 import OperationForm from './pages/userpa/OperationForm';
-import AdminDashboard from './pages/adminpa/AdminDashboard';
+
 import HomePage from './pages/userpa/Home';
 import './index.css';
 import UserManagement from './pages/adminpa/UserManagement';
-import AdminRoute from './pages/adminpa/AdminRoute';
+
 import CompanySelection from './pages/userpa/CompanySelection';
 import InvenData from './pages/userpa/InterventionRecords';
 import Logout from './pages/userpa/Logout';
