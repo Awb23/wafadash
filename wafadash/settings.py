@@ -24,8 +24,9 @@ ALLOWED_HOSTS = [
     'https://web-production-4c372.up.railway.app/'
 ]
 # Add the auto-generated Railway URL if it exists
-
-
+RAILWAY_STATIC_URL = os.environ.get('RAILWAY_STATIC_URL')
+if RAILWAY_STATIC_URL:
+    ALLOWED_HOSTS.append(RAILWAY_STATIC_URL)
 
 CSRF_TRUSTED_ORIGINS = [
    
@@ -120,7 +121,9 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 # Add the auto-generated Railway URL if it exists
-
+RAILWAY_STATIC_URL = os.environ.get('RAILWAY_STATIC_URL')
+if RAILWAY_STATIC_URL:
+    ALLOWED_HOSTS.append(RAILWAY_STATIC_URL.split('//')[1]) # Add without https://
 
 CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
@@ -198,7 +201,12 @@ USE_I18N = True
 USE_TZ = True
 
 # --- STATIC FILES (Configured for WhiteNoise & React) ---
-
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'front/dist'),
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # --- Default primary key field type ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
