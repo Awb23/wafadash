@@ -119,7 +119,15 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# 
+# --- STATIC FILES (Configured for WhiteNoise & React) ---
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# This tells Django where to find the React app's static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'front/dist'),
+]
+# This tells WhiteNoise to serve compressed static files for better performance
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # --- Default primary key field type ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
