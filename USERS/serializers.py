@@ -288,3 +288,21 @@ class SuiviCarburantSerializer(serializers.ModelSerializer):
         ]
 
 # ... (Keep the rest of the file, like AdminActionLogSerializer, etc.)
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # نزيدو بيانات إضافية داخل الـ payload
+        token['username'] = user.username
+        token['is_admin'] = user.is_staff  # ولا user.is_superuser
+
+        return token
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        data['username'] = self.user.username
+        data['is_admin'] = self.user.is_staff
+        return data
