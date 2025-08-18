@@ -9,31 +9,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # --- SECURITY (Hardcoded - NOT RECOMMENDED) ---
 # WARNING: This is insecure. Do not use this key in a real production app.
 SECRET_KEY = 'django-insecure-0a*vm1x8dcuhrk6=hd7xj@4+*w-2jx45n+r8v*%!^mu+axbe_1'
-DEBUG = True # Should always be False in production
+DEBUG = False # Should always be False in production
 
 # --- NETWORKING ---
-# Replace with your REAL frontend URL from Railway
-FRONTEND_URL = "https://frontend-production-a459.up.railway.app" 
-
+# This is for the integrated setup where Django serves React
 ALLOWED_HOSTS = [
-    'wafadash-production.up.railway.app', # Your backend domain
-    FRONTEND_URL.split('//')[1],      # Your frontend domain
+    'wafadash-production.up.railway.app', # Your main Railway domain
     '127.0.0.1',
     'localhost',
-    'https://wafadash-production-facb.up.railway.app'
 ]
-
 CSRF_TRUSTED_ORIGINS = [
-    f"https://{FRONTEND_URL.split('//')[1]}",
-    "https://wafadash-production.up.railway.app",
-    "https://wafadash-production-facb.up.railway.app"
-]
-CORS_ALLOWED_ORIGINS = [
-    FRONTEND_URL,
-    "http://localhost:5173",
-    "https://wafadash-production-facb.up.railway.app"
+    'https://wafadash-production.up.railway.app',
 ]
 CORS_ALLOW_CREDENTIALS = True
+# Since the frontend is served from the same domain, specific CORS origins are less critical
+# but it's good practice to have for local development
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+]
 
 # --- APPLICATION DEFINITION ---
 INSTALLED_APPS = [
@@ -51,8 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # WhiteNoise is removed as it's not needed for an API-only backend
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # For serving static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,25 +56,20 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'wafadash.urls'
 
-# in wafadash/settings.py
-import os # Make sure 'os' is imported at the top of the file
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # ✅ THIS LINE TELLS DJANGO WHERE TO FIND YOUR REACT APP'S INDEX.HTML
-        'DIRS': [os.path.join(BASE_DIR, 'front/dist')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
+# --- TEMPLATES (Configured for React) ---
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(BASE_DIR, 'front/dist')], # Path to React's index.html
+    'APP_DIRS': True,
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+        ],
     },
-]
+}]
 
 WSGI_APPLICATION = 'wafadash.wsgi.application'
 
@@ -107,12 +94,13 @@ REST_FRAMEWORK = {
     ],
 }
 
-# --- STATIC & MEDIA FILES ---
-# For Django's admin panel
+# --- STATIC FILES (Configured for WhiteNoise & React) ---
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'front/dist'),
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # --- OTHER SETTINGS ---
 LANGUAGE_CODE = 'en-us'
@@ -120,12 +108,3 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# In wafadash/settings.py
-
-ALLOWED_HOSTS = [
-    'wafadash-production-facb.up.railway.app', # <-- Add this new domain
-    'wafadash-production.up.railway.app',     # Keep your old one too
-    '127.0.0.1',
-    'localhost',
-]
