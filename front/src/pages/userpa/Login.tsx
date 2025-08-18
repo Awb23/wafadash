@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios'; // <-- DELETE or comment out this line
+
+// <-- Correct version without '.js'
+import apiClient from '../../api'; // <-- Correct version without '.js'
+// <-- Correct version without '.js'
 import { FiUser, FiLock, FiAlertCircle } from 'react-icons/fi';
+//... the rest of your imports and code
 import './Login.css';
 import logo from './assets/logo.png';
 
-// ✅ This is the line to change. It now uses the smart environment variable.
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+// ✅ REMOVED: The API_BASE_URL is now managed inside api.js
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -19,18 +23,17 @@ export default function LoginPage() {
     setError('');
 
     try {
-      // Use the API_BASE_URL variable for the request
-      const response = await axios.post(`${API_BASE_URL}/api/apilogin/`, {
+      // ✅ CHANGED: Use apiClient for the request
+      const response = await apiClient.post('/api/apilogin/', {
         username,
         password,
       });
 
-      const { access, is_admin, username: loggedInUsername } = response.data; // Also get username
+      const { access, is_admin, username: loggedInUsername } = response.data;
 
-      // Save user info to localStorage
       localStorage.setItem('token', access);
       localStorage.setItem('isAdmin', is_admin ? 'true' : 'false');
-      localStorage.setItem('username', loggedInUsername); // Save the username
+      localStorage.setItem('username', loggedInUsername);
 
       if (is_admin) {
         navigate('/admin');
