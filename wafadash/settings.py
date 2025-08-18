@@ -108,3 +108,10 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# In your settings.py file
+
+ALLOWED_HOSTS = [
+    'wafadash-production-facb.up.railway.app', # <-- Add this line
+    '127.0.0.1',
+    'localhost',
+]
