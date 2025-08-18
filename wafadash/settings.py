@@ -41,7 +41,8 @@ DEBUG=True
 CORS_ALLOWED_ORIGINS = [
     "https://frontend-production-a459.up.railway.app",
     "https://web-production-4c372.up.railway.app",
-    "http://localhost:5173",  # for local React dev
+    "http://localhost:5173",
+      "wafadash-production-a087.up.railway.app"  # for local React dev
 ]
 
 CORS_ALLOW_CREDENTIALS = True
