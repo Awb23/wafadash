@@ -137,79 +137,10 @@ USE_TZ = True
 
 # -------------------------------------------------
 # STATIC FILES
-# -------------------------------------------------
-STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [
-    BASE_DIR / "front" / "dist",
-]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-# -------------------------------------------------
-# DEFAULT PK FIELD
-# -------------------------------------------------
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-
-# TEMPLATES
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # This tells Django to look for index.html in your React build folder
-        'DIRS': [os.path.join(BASE_DIR, 'front/dist')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-# STATIC
-
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'front/dist'),
-]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'front' / 'dist' / 'static',
-]
-STATIC_URL = '/static/'
-
-# wafadash/settings.py
-
-import os
-from pathlib import Path
-import dj_database_url
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# --- SECURITY SETTINGS ---
-# IMPORTANT: Your SECRET_KEY is kept here for now, but for real production,
-# you should move it to Railway's "Variables" tab and use os.environ.get('SECRET_KEY')
-SECRET_KEY = 'django-insecure-0a*vm1x8dcuhrk6=hd7xj@4+*w-2jx45n+r8v*%!^mu+axbe_1'
-
-# DEBUG should be False in production. It's safer to control this with a Railway variable.
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-
+# 
 # --- NETWORKING SETTINGS ---
 # This list is now clean and uses the correct syntax.
-ALLOWED_HOSTS = [
-    'wafadash-production.up.railway.app',
-    'frontend-production-a459.up.railway.app', # Your frontend URL
-    'https://wafadash-production-a087.up.railway.app/', # Another frontend URL you used
-    '127.0.0.1',
-    'localhost',
+
 ]
 # Add the auto-generated Railway URL if it exists
 RAILWAY_STATIC_URL = os.environ.get('RAILWAY_STATIC_URL')
