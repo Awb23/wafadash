@@ -140,10 +140,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
     'https://web-production-4b91f.up.railway.app',
+     'https://frontend-production-a459.up.railway.app/',
 ]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+     'https://wafadash-production.up.railway.app',
+    'https://web-production-4b91f.up.railway.app',
+     'https://frontend-production-a459.up.railway.app/',
+]
 import os
 from pathlib import Path
 import dj_database_url
@@ -169,6 +175,7 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     f"https://{os.environ.get('RAILWAY_STATIC_URL', '*')}",
      'https://wafadash-production.up.railway.app', 
+     'https://frontend-production-a459.up.railway.app/', 
 ]
 
 CORS_ALLOW_CREDENTIALS = True
