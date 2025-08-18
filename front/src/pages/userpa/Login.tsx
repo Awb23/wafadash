@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import apiClient from './../../api'; // Using the configured apiClient is important
+import apiClient from '../../api'; // Standardized import path
 import { FiUser, FiLock, FiAlertCircle } from 'react-icons/fi';
 import './Login.css';
 import logo from './assets/logo.png';
@@ -16,25 +16,29 @@ export default function LoginPage() {
     setError('');
 
     try {
+      // Send the login request using our configured API client
       const response = await apiClient.post('/api/apilogin/', {
         username,
         password,
       });
 
+      // Get the token and user info from the response
       const { access, is_admin, username: loggedInUsername } = response.data;
 
+      // Save the token and user info in the browser's local storage
       localStorage.setItem('token', access);
       localStorage.setItem('isAdmin', is_admin ? 'true' : 'false');
       localStorage.setItem('username', loggedInUsername);
 
-      // All users are now sent to '/home'
+      // After a successful login, send all users to the home page
       navigate('/home');
 
-    } catch (err: any) { // ✅ FIXED: The try/catch block is now correct
-      if (err.response && err.response.data) {
-        setError(err.response.data.error || 'Login failed. Check credentials.');
+    } catch (err: any) {
+      // If the API sends an error, display it to the user
+      if (err.response && err.response.data && err.response.data.error) {
+        setError(err.response.data.error);
       } else {
-        setError('Login failed due to a network or server error.');
+        setError('Login failed. Please check your connection or contact support.');
       }
     }
   };

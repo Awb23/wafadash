@@ -141,3 +141,4 @@ CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
     'https://web-production-4b91f.up.railway.app',
 ]
+CORS_ALLOW_CREDENTIALS = True
