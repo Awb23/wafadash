@@ -179,3 +179,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'front/dist'),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'front' / 'dist' / 'static',
+]
+STATIC_URL = '/static/'
