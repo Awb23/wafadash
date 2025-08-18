@@ -84,7 +84,8 @@ ROOT_URLCONF = "wafadash.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "front" / "dist"],  # React build folder
+         "DIRS": [BASE_DIR / "front" / "dist" / "assets"],  # index.html est ici
+
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -152,7 +153,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # collectstatic files هنا
 STATICFILES_DIRS = [
-    BASE_DIR / 'front' / 'dist',  # React build directory
+    BASE_DIR / "front" / "dist" / "assets",  # JS/CSS files
 ]
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
