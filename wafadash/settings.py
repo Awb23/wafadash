@@ -24,9 +24,8 @@ ALLOWED_HOSTS = [
     'https://web-production-4c372.up.railway.app/'
 ]
 # Add the auto-generated Railway URL if it exists
-RAILWAY_STATIC_URL = os.environ.get('RAILWAY_STATIC_URL')
-if RAILWAY_STATIC_URL:
-    ALLOWED_HOSTS.append(RAILWAY_STATIC_URL)
+
+
 
 CSRF_TRUSTED_ORIGINS = [
    
