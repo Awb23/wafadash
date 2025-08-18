@@ -29,15 +29,15 @@ if RAILWAY_STATIC_URL:
     ALLOWED_HOSTS.append(RAILWAY_STATIC_URL)
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://wafadash-production.up.railway.app',
+   
     'https://web-production-4c372.up.railway.app',
 ]
 CORS_ALLOWED_ORIGINS = [
-    'https://wafadash-production.up.railway.app',
+    
 
     'https://web-production-4c372.up.railway.app',
 
-    'http://localhost:5173', # For local development
+   # For local development
 ]
 CORS_ALLOW_CREDENTIALS = True
 
