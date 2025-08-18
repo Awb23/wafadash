@@ -120,9 +120,7 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 # Add the auto-generated Railway URL if it exists
-RAILWAY_STATIC_URL = os.environ.get('RAILWAY_STATIC_URL')
-if RAILWAY_STATIC_URL:
-    ALLOWED_HOSTS.append(RAILWAY_STATIC_URL.split('//')[1]) # Add without https://
+
 
 CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
