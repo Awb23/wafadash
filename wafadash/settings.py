@@ -176,7 +176,22 @@ TEMPLATES = [
 ]
 
 # STATIC
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "front" / "dist" / "assets"]  # CSS/JS
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "front" / "dist"],  # index.html hna
+        "APP_DIRS": True,
+        "OPTIONS": {"context_processors": [
+            "django.template.context_processors.debug",
+            "django.template.context_processors.request",
+            "django.contrib.auth.context_processors.auth",
+            "django.contrib.messages.context_processors.messages",
+        ],},
+    },
+]
+STATICFILES_DIRS = [
+    BASE_DIR / "front" / "dist" / "assets",
+]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
