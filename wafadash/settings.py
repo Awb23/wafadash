@@ -21,6 +21,7 @@ ALLOWED_HOSTS = [
     'wafadash-production.up.railway.app', # Your Railway domain
     '127.0.0.1',
     'localhost',
+    'https://web-production-4c372.up.railway.app/'
 ]
 # Add the auto-generated Railway URL if it exists
 RAILWAY_STATIC_URL = os.environ.get('RAILWAY_STATIC_URL')
@@ -29,9 +30,13 @@ if RAILWAY_STATIC_URL:
 
 CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
+    'https://web-production-4c372.up.railway.app',
 ]
 CORS_ALLOWED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
+
+    'https://web-production-4c372.up.railway.app',
+
     'http://localhost:5173', # For local development
 ]
 CORS_ALLOW_CREDENTIALS = True
