@@ -18,10 +18,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "web-production-2122.up.railway.app",
-    "https://wafadash-production-a087.up.railway.app/"
+  "*"
         # ✅ زيد هاد الدومين
 ]
 
@@ -37,7 +34,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://wafadash-production.up.railway.app",
     "https://frontend-production-a459.up.railway.app",  # frontend 1
     "https://web-production-4c372.up.railway.app", 
-         "https://wafadash-production-a087.up.railway.app/"     # frontend 2
+         "https://wafadash-production-a087.up.railway.app/",
+            "wafadash-production-a087.up.railway.app",  # frontend 2
 ]
 DEBUG=True
 
