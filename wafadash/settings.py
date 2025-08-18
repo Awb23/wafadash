@@ -36,6 +36,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://frontend-production-a459.up.railway.app",  # frontend 1
     "https://web-production-4c372.up.railway.app",      # frontend 2
 ]
+DEBUG=True
 
 CORS_ALLOWED_ORIGINS = [
     "https://frontend-production-a459.up.railway.app",
