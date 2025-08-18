@@ -34,7 +34,8 @@ if RAILWAY_HOSTNAME:
 CSRF_TRUSTED_ORIGINS = [
     "https://wafadash-production.up.railway.app",
     "https://frontend-production-a459.up.railway.app",  # frontend 1
-    "https://web-production-4c372.up.railway.app",      # frontend 2
+    "https://web-production-4c372.up.railway.app", 
+         "https://wafadash-production-a087.up.railway.app/"     # frontend 2
 ]
 DEBUG=True
 
