@@ -94,14 +94,16 @@ WSGI_APPLICATION = 'wafadash.wsgi.application'
 
 # --- DATABASE (Configured for Railway) ---
 DATABASES = {
-    # This will use the DATABASE_URL from Railway's environment variables.
-    # If DATABASE_URL is not found, it falls back to your local sqlite3 db.
-    'default': dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-        conn_max_age=600,
-        ssl_require=False # Set to False to work with both local and Railway
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'tNvjmBUZiXyykyrSDoeXuyviYZLVnnSU',
+        'HOST': 'turntable.proxy.rlwy.net',
+        'PORT': '19200',
+    }
 }
+
 
 # --- AUTHENTICATION ---
 AUTH_USER_MODEL = 'USERS.USER'
