@@ -18,9 +18,9 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    "wafadash-production.up.railway.app",  # backend Railway domain
-    "127.0.0.1",
     "localhost",
+    "127.0.0.1",
+    "web-production-2122.up.railway.app",  # ✅ زيد هاد الدومين
 ]
 
 # Add Railway hostname automatically if available
