@@ -131,3 +131,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # --- Default primary key field type ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# in wafadash/settings.py
+
+# This tells Django that POST requests (like the admin login) are safe.
+CSRF_TRUSTED_ORIGINS = [
+    'https://wafadash-production.up.railway.app',
+    'https://web-production-4b91f.up.railway.app',
+]
