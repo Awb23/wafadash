@@ -22,6 +22,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
     'https://web-production-7593.up.railway.app',
 ]
+
 CORS_ALLOW_CREDENTIALS = True
 # Since the frontend is served from the same domain, specific CORS origins are less critical
 # but it's good practice to have for local development
