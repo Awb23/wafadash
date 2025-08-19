@@ -1333,7 +1333,7 @@ from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 # Make sure you have all necessary imports at the top of your file
 
-@api_view(['POST']) # This decorator is essential
+@api_view(['POST','GET']) # This decorator is essential
 def api_login(request):
     """
     Handles user login. Expects 'username' and 'password' in the request body.
