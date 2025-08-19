@@ -20,14 +20,14 @@ ALLOWED_HOSTS = [
 ]
 CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
-    'web-production-7593.up.railway.app'
+    'web-production-7593.up.railway.app',
 ]
 CORS_ALLOW_CREDENTIALS = True
 # Since the frontend is served from the same domain, specific CORS origins are less critical
 # but it's good practice to have for local development
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'web-production-7593.up.railway.app'
+    'web-production-7593.up.railway.app',
 ]
 
 # --- APPLICATION DEFINITION ---
