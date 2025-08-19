@@ -4,7 +4,7 @@ import { ChevronLeft, Save, Edit3, AlertCircle, CheckCircle, Calendar, Building,
 import axios from 'axios';
 import debounce from 'lodash/debounce';
 
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = 'https://web-production-7593.up.railway.app';
 
 // Interface definitions (unchanged)
 interface SocieteAssistance {

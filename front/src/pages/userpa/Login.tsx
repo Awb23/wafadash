@@ -6,7 +6,7 @@ import './Login.css';
 import logo from './assets/logo.png';
 
 // The API URL is now hardcoded for localhost
-const API_BASE_URL = 'https://web-production-7593.up.railway.app';
+const API_BASE_URL = 'https://glorious-space-parakeet-g4jwp56g5jgc9v6j-8000.app.github.dev';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
