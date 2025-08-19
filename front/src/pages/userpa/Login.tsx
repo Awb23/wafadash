@@ -20,10 +20,8 @@ export default function LoginPage() {
 
     try {
       // We now use the global axios with the full URL
-      const response = await axios.post(`${API_BASE_URL}/api/apilogin`, {
-        username,
-        password,
-      });
+      const response = await axios.post(`${API_BASE_URL}/api/apilogin/`, { username, password });
+
 
       const { access, is_admin, username: loggedInUsername } = response.data;
 
