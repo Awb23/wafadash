@@ -21,6 +21,7 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://wafadash-production.up.railway.app',
     'https://web-production-7593.up.railway.app',
+    'https://glorious-space-parakeet-g4jwp56g5jgc9v6j-8000.app.github.dev'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -29,6 +30,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'https://web-production-7593.up.railway.app',
+    'https://glorious-space-parakeet-g4jwp56g5jgc9v6j-8000.app.github.dev'
 ]
 
 # --- APPLICATION DEFINITION ---
@@ -124,8 +126,14 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     "https://web-production-7593.up.railway.app",
     "http://localhost:5173",
+     "https://localhost:8000",  # React local dev
+    "http://localhost:8000", 
+    "https://glorious-space-parakeet-g4jwp56g5jgc9v6j-8000.app.github.dev"
 ]
 CSRF_TRUSTED_ORIGINS = [
     "https://web-production-7593.up.railway.app",
+    "https://glorious-space-parakeet-g4jwp56g5jgc9v6j-8000.app.github.dev",
+     "https://localhost:8000",  # React local dev
+    "http://localhost:8000", 
 ]
 CORS_ALLOW_CREDENTIALS = True
