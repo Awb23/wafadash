@@ -117,3 +117,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = [
     '*',
 ]
+
+# In wafadash/settings.py
+ALLOWED_HOSTS = ['wafadash-production.up.railway.app']
+
+CORS_ALLOWED_ORIGINS = [
+    "https://web-production-7593.up.railway.app",
+    "http://localhost:5173",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-7593.up.railway.app",
+]
+CORS_ALLOW_CREDENTIALS = True
