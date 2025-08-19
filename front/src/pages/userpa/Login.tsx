@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import apiClient from '../../api.js'; // Using the configured apiClient is important
+import axios from 'axios'; // We add the original axios import back
 import { FiUser, FiLock, FiAlertCircle } from 'react-icons/fi';
 import './Login.css';
 import logo from './assets/logo.png';
+
+// The API URL is now hardcoded for localhost
+const API_BASE_URL = 'https://wafadash-production.up.railway.app';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -16,8 +19,8 @@ export default function LoginPage() {
     setError('');
 
     try {
-      // Use the apiClient to send the login request
-      const response = await apiClient.post('/api/apilogin/', {
+      // We now use the global axios with the full URL
+      const response = await axios.post(`${API_BASE_URL}/api/apilogin/`, {
         username,
         password,
       });
@@ -28,7 +31,7 @@ export default function LoginPage() {
       localStorage.setItem('isAdmin', is_admin ? 'true' : 'false');
       localStorage.setItem('username', loggedInUsername);
 
-      // All users are now sent to '/home'
+      // All users are sent to '/home' after login
       navigate('/home');
 
     } catch (err: any) {
