@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # --- SECURITY (Hardcoded - NOT RECOMMENDED) ---
 # WARNING: This is insecure. Do not use this key in a real production app.
 SECRET_KEY = 'django-insecure-0a*vm1x8dcuhrk6=hd7xj@4+*w-2jx45n+r8v*%!^mu+axbe_1'
-DEBUG = False # Should always be False in production
+DEBUG = True # Should always be False in production
 
 # --- NETWORKING ---
 # This is for the integrated setup where Django serves React
@@ -119,7 +119,7 @@ ALLOWED_HOSTS = [
 ]
 
 # In wafadash/settings.py
-ALLOWED_HOSTS = ['wafadash-production.up.railway.app']
+
 
 CORS_ALLOWED_ORIGINS = [
     "https://web-production-7593.up.railway.app",
