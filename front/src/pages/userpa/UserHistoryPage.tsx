@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ChevronLeft, Moon, Sun, File, Clipboard, Truck, AlertCircle, FileText, Filter, X, Download, FileSpreadsheet } from 'lucide-react';
 
-const API_BASE_URL = 'https://web-production-7593.up.railway.app';
+const API_BASE_URL = 'https://web-production-3b977.up.railway.app';
 
 interface FactureData {
   id: number;
