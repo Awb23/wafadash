@@ -85,11 +85,13 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "railway",
         "USER": "postgres",
-        "PASSWORD": "mnLrZnYrQUwtsiLEyrDYOmFHYqTcTRYE",
-        "HOST": "switchback.proxy.rlwy.net",  # دير host اللي عاطيك Railway
-        "PORT": "32338",
+        "PASSWORD": "ALmLyUDcAKiblfwuZcHADHkuOaTczooe",
+        "HOST": "mainline.proxy.rlwy.net",  # دير host اللي عاطيك Railway
+        "PORT": "13326",
     }
 }
+
+
 
 CORS_ALLOW_CREDENTIALS = True
 # --- AUTHENTICATION ---
