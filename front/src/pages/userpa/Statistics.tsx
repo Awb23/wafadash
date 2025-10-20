@@ -21,7 +21,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, ArcElement, Title, Tooltip, Legend);
 
-const API_BASE_URL = 'https://web-production-3b977.up.railway.app';
+const API_BASE_URL = 'https://web-production-a767c.up.railway.app';
 
 interface StatsData {
   interventions: { month: string; total: number }[];
