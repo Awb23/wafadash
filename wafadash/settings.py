@@ -131,7 +131,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://web-production-a767c.up.railway.app",
     "http://localhost:5173",
      "https://localhost:8000",  # React local dev
-    "http://localhost:8000", 
+    "web-production-a767c.up.railway.app", 
     'https://web-production-3b977.up.railway.app'
 ]
 CSRF_TRUSTED_ORIGINS = [
@@ -139,6 +139,6 @@ CSRF_TRUSTED_ORIGINS = [
     "https://glorious-space-parakeet-g4jwp56g5jgc9v6j-8000.app.github.dev",
      "https://localhost:8000",  # React local dev
     "http://localhost:8000", 
-    'https://web-production-3b977.up.railway.app'
+    'web-production-a767c.up.railway.app'
 ]
 CORS_ALLOW_CREDENTIALS = True
